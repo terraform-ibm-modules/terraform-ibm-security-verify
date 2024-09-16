@@ -40,7 +40,7 @@ func TestRunBasicExample(t *testing.T) {
 // func TestRunUpgradeExample(t *testing.T) {
 // 	t.Parallel()
 
-// 	options := setupOptions(t, "mod-template-upg", basicExampleDir)
+// 	options := setupOptions(t, "isv-upg", basicExampleDir)
 
 // 	output, err := options.RunTestUpgrade()
 // 	if !options.UpgradeTestSkipped {
