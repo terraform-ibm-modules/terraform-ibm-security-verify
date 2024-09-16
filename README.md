@@ -28,7 +28,6 @@ TODO: Replace this with a description of the modules in this repo.
 ## Overview
 * [terraform-ibm-security-verify](#terraform-ibm-security-verify)
 * [Examples](./examples)
-    * [Advanced example](./examples/advanced)
     * [Basic example](./examples/basic)
 * [Contributing](#contributing)
 <!-- END OVERVIEW HOOK -->
@@ -96,6 +95,7 @@ statement instead the previous block.
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.0 |
+| <a name="requirement_ibm"></a> [ibm](#requirement\_ibm) | >= 1.65.0, < 2.0.0 |
 
 ### Modules
 
@@ -103,15 +103,28 @@ No modules.
 
 ### Resources
 
-No resources.
+| Name | Type |
+|------|------|
+| [ibm_resource_instance.isv_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/resource_instance) | resource |
 
 ### Inputs
 
-No inputs.
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_hostname"></a> [hostname](#input\_hostname) | The hostname of the IBM Security Verify instance that is created by this module. | `string` | n/a | yes |
+| <a name="input_plan"></a> [plan](#input\_plan) | The pricing plan of the IBM Security Verify instance. | `string` | `"verify-lite"` | no |
+| <a name="input_prefix"></a> [prefix](#input\_prefix) | The prefix that you would like to append to your resources. | `string` | n/a | yes |
+| <a name="input_region"></a> [region](#input\_region) | The IBM Cloud region where the IBM Security Verify resource is created. | `string` | `"eu-de"` | no |
+| <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | The ID of the resource group where the IBM Security Verify instance is created. | `string` | n/a | yes |
+| <a name="input_tags"></a> [tags](#input\_tags) | The list of tags to add to the IBM Security Verify instance. | `list(string)` | `[]` | no |
 
 ### Outputs
 
-No outputs.
+| Name | Description |
+|------|-------------|
+| <a name="output_crn"></a> [crn](#output\_crn) | The IBM Security Verify instance CRN. |
+| <a name="output_guid"></a> [guid](#output\_guid) | The globally unique identifier of the IBM Security Verify instance. |
+| <a name="output_isv_instance_name"></a> [isv\_instance\_name](#output\_isv\_instance\_name) | The name of the IBM Security Verify instance. |
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 <!-- Leave this section as is so that your module has a link to local development environment set-up steps for contributors to follow -->

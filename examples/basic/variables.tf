@@ -11,7 +11,7 @@ variable "ibmcloud_api_key" {
 variable "region" {
   type        = string
   description = "Region to provision all resources created by this example"
-  default     = "us-south"
+  default     = "eu-de"
 }
 
 variable "prefix" {
@@ -30,4 +30,9 @@ variable "resource_tags" {
   type        = list(string)
   description = "Optional list of tags to be added to created resources"
   default     = []
+}
+
+variable "hostname" {
+  type        = string
+  description = "The hostname of the IBM Security Verify instance that is created by this module."
 }
