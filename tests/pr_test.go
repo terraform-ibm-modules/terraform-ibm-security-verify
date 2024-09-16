@@ -21,7 +21,7 @@ func setupOptions(t *testing.T, prefix string, dir string) *testhelper.TestOptio
 		ResourceGroup: resourceGroup,
 		Region:        "eu-de",
 		TerraformVars: map[string]interface{}{
-			"hostname": "mytenant",
+			"instance_name": "my-isv-instance",
 		},
 	})
 	return options
@@ -37,14 +37,14 @@ func TestRunBasicExample(t *testing.T) {
 	assert.NotNil(t, output, "Expected some output")
 }
 
-// func TestRunUpgradeExample(t *testing.T) {
-// 	t.Parallel()
+func TestRunUpgradeExample(t *testing.T) {
+	t.Parallel()
 
-// 	options := setupOptions(t, "isv-upg", basicExampleDir)
+	options := setupOptions(t, "isv-upg", basicExampleDir)
 
-// 	output, err := options.RunTestUpgrade()
-// 	if !options.UpgradeTestSkipped {
-// 		assert.Nil(t, err, "This should not have errored")
-// 		assert.NotNil(t, output, "Expected some output")
-// 	}
-// }
+	output, err := options.RunTestUpgrade()
+	if !options.UpgradeTestSkipped {
+		assert.Nil(t, err, "This should not have errored")
+		assert.NotNil(t, output, "Expected some output")
+	}
+}

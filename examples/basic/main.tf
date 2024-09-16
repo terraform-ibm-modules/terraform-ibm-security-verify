@@ -17,8 +17,8 @@ module "resource_group" {
 module "isv_instance" {
   source            = "../../"
   resource_group_id = module.resource_group.resource_group_id
-  hostname          = var.hostname
-  prefix            = var.prefix
+  instance_name     = var.instance_name
+  hostname          = "${var.prefix}-tenant"
   tags              = var.resource_tags
   region            = var.region
 }

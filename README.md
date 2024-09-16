@@ -111,9 +111,9 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_hostname"></a> [hostname](#input\_hostname) | The hostname of the IBM Security Verify instance that is created by this module. | `string` | n/a | yes |
+| <a name="input_hostname"></a> [hostname](#input\_hostname) | The hostname of the IBM Security Verify instance that is created by this module. Note: After the service instance creation returns, the instance may take up to two minutes to be available. | `string` | n/a | yes |
+| <a name="input_instance_name"></a> [instance\_name](#input\_instance\_name) | The name of the IBM Security Verify instance. | `string` | n/a | yes |
 | <a name="input_plan"></a> [plan](#input\_plan) | The pricing plan of the IBM Security Verify instance. | `string` | `"verify-lite"` | no |
-| <a name="input_prefix"></a> [prefix](#input\_prefix) | The prefix that you would like to append to your resources. | `string` | n/a | yes |
 | <a name="input_region"></a> [region](#input\_region) | The IBM Cloud region where the IBM Security Verify resource is created. | `string` | `"eu-de"` | no |
 | <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | The ID of the resource group where the IBM Security Verify instance is created. | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | The list of tags to add to the IBM Security Verify instance. | `list(string)` | `[]` | no |

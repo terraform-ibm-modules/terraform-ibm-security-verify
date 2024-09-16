@@ -9,7 +9,7 @@ variable "resource_group_id" {
 
 variable "hostname" {
   type        = string
-  description = "The hostname of the IBM Security Verify instance that is created by this module."
+  description = "The hostname of the IBM Security Verify instance that is created by this module. Note: After the service instance creation returns, the instance may take up to two minutes to be available."
 }
 
 variable "plan" {
@@ -32,9 +32,9 @@ variable "region" {
   }
 }
 
-variable "prefix" {
+variable "instance_name" {
   type        = string
-  description = "The prefix that you would like to append to your resources."
+  description = "The name of the IBM Security Verify instance."
 }
 
 variable "tags" {

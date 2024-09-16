@@ -20,6 +20,11 @@ variable "prefix" {
   default     = "basic"
 }
 
+variable "instance_name" {
+  type        = string
+  description = "The name of the IBM Security Verify instance."
+}
+
 variable "resource_group" {
   type        = string
   description = "The name of an existing resource group to provision resources in to. If not set a new resource group will be created using the prefix variable"
@@ -30,9 +35,4 @@ variable "resource_tags" {
   type        = list(string)
   description = "Optional list of tags to be added to created resources"
   default     = []
-}
-
-variable "hostname" {
-  type        = string
-  description = "The hostname of the IBM Security Verify instance that is created by this module."
 }
