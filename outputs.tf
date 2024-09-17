@@ -15,3 +15,9 @@ output "guid" {
   description = "The globally unique identifier of the IBM Security Verify instance."
   value       = ibm_resource_instance.isv_instance.guid
 }
+
+# output "isv_instance_account_url" {
+#   description = "The Account URL of the IBM Security Verify instance."
+#   value       = ibm_resource_instance.isv_instance.account_url
+# }
+# Note: Couldn't find specific attributes or methods for obtaining the dashboard/account URL.

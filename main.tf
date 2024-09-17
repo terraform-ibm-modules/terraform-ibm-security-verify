@@ -8,9 +8,15 @@ resource "ibm_resource_instance" "isv_instance" {
   plan              = var.plan
   location          = var.region
   resource_group_id = var.resource_group_id
-  tags              = var.tags
+  tags              = var.resource_tags
 
   parameters = {
     hostname = var.hostname
   }
+}
+
+resource "ibm_resource_tag" "access_tags" {
+  resource_id = resource.ibm_resource_instance.isv_instance.crn
+  tags        = var.access_tags
+  tag_type    = "access"
 }

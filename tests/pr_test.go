@@ -20,9 +20,6 @@ func setupOptions(t *testing.T, prefix string, dir string) *testhelper.TestOptio
 		Prefix:        prefix,
 		ResourceGroup: resourceGroup,
 		Region:        "eu-de",
-		TerraformVars: map[string]interface{}{
-			"instance_name": "my-isv-instance",
-		},
 	})
 	return options
 }
