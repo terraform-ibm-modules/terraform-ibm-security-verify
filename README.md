@@ -95,7 +95,11 @@ You need the following permissions to run this module:
 If no permissions are required for the module, uncomment the following
 statement instead the previous block.
 -->
+You need the following permissions to run this module:
 
+- IAM services
+    - **IBM Verify** service
+        - `Editor` platform access
 <!-- No permissions are needed to run this module.-->
 
 
@@ -126,7 +130,7 @@ No modules.
 | <a name="input_access_tags"></a> [access\_tags](#input\_access\_tags) | A list of access tags to apply to the resources created by the module. For more information, see https://cloud.ibm.com/docs/account?topic=account-access-tags-tutorial. | `list(string)` | `[]` | no |
 | <a name="input_hostname"></a> [hostname](#input\_hostname) | The hostname of the IBM Security Verify instance which is used to construct the Dashboard/Account URL in the format: https://<hostname>.verify.ibm.com/ui/admin/. Note: After the service instance creation returns, the instance may take up to two minutes to be available. | `string` | n/a | yes |
 | <a name="input_instance_name"></a> [instance\_name](#input\_instance\_name) | The name of the IBM Security Verify instance. | `string` | n/a | yes |
-| <a name="input_plan"></a> [plan](#input\_plan) | The pricing plan of the IBM Security Verify instance. | `string` | `"verify-lite"` | no |
+| <a name="input_plan"></a> [plan](#input\_plan) | The pricing plan of the IBM Security Verify instance.Possible values: `verify-lite` | `string` | `"verify-lite"` | no |
 | <a name="input_region"></a> [region](#input\_region) | The IBM Cloud region where the IBM Security Verify resource is created.Possible values: `eu-de` (Frankfurt) | `string` | `"eu-de"` | no |
 | <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | The ID of the resource group where the IBM Security Verify instance is created. | `string` | n/a | yes |
 | <a name="input_resource_tags"></a> [resource\_tags](#input\_resource\_tags) | A list of tags to apply to resources created by the module. | `list(string)` | `[]` | no |
@@ -135,6 +139,7 @@ No modules.
 
 | Name | Description |
 |------|-------------|
+| <a name="output_account_url"></a> [account\_url](#output\_account\_url) | The IBM Security Verify Account URL |
 | <a name="output_crn"></a> [crn](#output\_crn) | The IBM Security Verify instance CRN. |
 | <a name="output_guid"></a> [guid](#output\_guid) | The globally unique identifier of the IBM Security Verify instance. |
 | <a name="output_isv_instance_name"></a> [isv\_instance\_name](#output\_isv\_instance\_name) | The name of the IBM Security Verify instance. |

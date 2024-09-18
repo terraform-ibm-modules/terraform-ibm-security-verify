@@ -18,7 +18,7 @@ variable "hostname" {
 
 variable "plan" {
   type        = string
-  description = "The pricing plan of the IBM Security Verify instance."
+  description = "The pricing plan of the IBM Security Verify instance.Possible values: `verify-lite`"
   default     = "verify-lite"
   validation {
     condition     = contains(["verify-lite"], var.plan)
