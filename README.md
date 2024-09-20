@@ -69,37 +69,32 @@ module "isv_instance" {
   region            = "eu-de"
 }
 ```
-
-### Required IAM access policies
+### Required access policies
 
 <!-- PERMISSIONS REQUIRED TO RUN MODULE
 If this module requires permissions, uncomment the following block and update
 the sample permissions, following the format.
-Replace the sample Account and IBM Cloud service names and roles with the
-information in the console at
-Manage > Access (IAM) > Access groups > Access policies.
+Replace the 'Sample IBM Cloud' service and roles with applicable values.
+The required information can usually be found in the services official 
+IBM Cloud documentation. 
+To view all available service permissions, you can go in the 
+console at Manage > Access (IAM) > Access groups and click into an existing group
+(or create a new one) and in the 'Access' tab click 'Assign access'.
 -->
 
-<!--
 You need the following permissions to run this module:
 
-- IAM services
-    - **Sample IBM Cloud** service
-        - `Editor` platform access
-        - `Manager` platform access
-- Account management services
-    - **Sample account management** service
+- Service
+    - **Resource group only**
+        - `Viewer` access on the specific resource group
+    - **IBM Verify** service
         - `Editor` platform access
 
 <!-- NO PERMISSIONS FOR MODULE
 If no permissions are required for the module, uncomment the following
 statement instead the previous block.
 -->
-You need the following permissions to run this module:
 
-- IAM services
-    - **IBM Verify** service
-        - `Editor` platform access
 <!-- No permissions are needed to run this module.-->
 
 
