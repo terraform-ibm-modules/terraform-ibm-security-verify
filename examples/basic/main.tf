@@ -11,14 +11,15 @@ module "resource_group" {
 }
 
 ########################################################################################################################
-# COS instance
+# IBM Security Verify instance
 ########################################################################################################################
 
-resource "ibm_resource_instance" "cos_instance" {
-  name              = "${var.prefix}-cos"
+module "isv_instance" {
+  source            = "../../"
   resource_group_id = module.resource_group.resource_group_id
-  service           = "cloud-object-storage"
-  plan              = "standard"
-  location          = "global"
-  tags              = var.resource_tags
+  hostname          = "${var.prefix}-tenant"
+  region            = var.region
+  instance_name     = "${var.prefix}-isv"
+  resource_tags     = var.resource_tags
+  access_tags       = var.access_tags
 }

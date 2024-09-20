@@ -2,9 +2,9 @@
 # Outputs
 ########################################################################################################################
 
-output "cos_instance_id" {
-  description = "COS instance id"
-  value       = ibm_resource_instance.cos_instance.id
+output "isv_instance_name" {
+  description = "The name of the IBM Security Verify instance."
+  value       = module.isv_instance.isv_instance_name
 }
 
 output "resource_group_name" {
@@ -12,7 +12,17 @@ output "resource_group_name" {
   value       = module.resource_group.resource_group_name
 }
 
-output "resource_group_id" {
-  description = "Resource group ID"
-  value       = module.resource_group.resource_group_id
+output "crn" {
+  description = "The IBM Security Verify instance CRN."
+  value       = module.isv_instance.crn
+}
+
+output "guid" {
+  description = "The globally unique identifier of the IBM Security Verify instance."
+  value       = module.isv_instance.guid
+}
+
+output "account_url" {
+  description = "The IBM Security Verify Account URL"
+  value       = module.isv_instance.account_url
 }
