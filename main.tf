@@ -15,6 +15,11 @@ resource "ibm_resource_instance" "isv_instance" {
   }
 }
 
+resource "ibm_resource_key" "isv_instance_key" {
+  name                 = "${var.instance_name}-key"
+  resource_instance_id = ibm_resource_instance.isv_instance.id
+}
+
 resource "ibm_resource_tag" "access_tags" {
   resource_id = resource.ibm_resource_instance.isv_instance.crn
   tags        = var.access_tags

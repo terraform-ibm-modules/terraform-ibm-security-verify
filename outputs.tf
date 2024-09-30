@@ -20,3 +20,13 @@ output "account_url" {
   description = "The IBM Security Verify Account URL"
   value       = "https://${var.hostname}.verify.ibm.com/ui/admin/"
 }
+
+output "isv_instance_credentials" {
+  description = "Security Verify instance credentials, used for configuration APIs internal to the instance."
+  value       = ibm_resource_key.isv_instance_key.credentials
+}
+
+output "isv_instance_credentials_json" {
+  description = "Security Verify instance credentials, used for configuration APIs internal to the instance."
+  value       = ibm_resource_key.isv_instance_key.credentials_json
+}
