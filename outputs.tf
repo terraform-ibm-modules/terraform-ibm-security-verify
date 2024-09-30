@@ -24,9 +24,11 @@ output "account_url" {
 output "isv_instance_credentials" {
   description = "Security Verify instance credentials, used for configuration APIs internal to the instance."
   value       = ibm_resource_key.isv_instance_key.credentials
+  sensitive   = true
 }
 
 output "isv_instance_credentials_json" {
   description = "Security Verify instance credentials, used for configuration APIs internal to the instance."
   value       = ibm_resource_key.isv_instance_key.credentials_json
+  sensitive   = true
 }

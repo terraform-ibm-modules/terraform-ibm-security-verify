@@ -30,9 +30,11 @@ output "account_url" {
 output "isv_instance_credentials" {
   description = "Security Verify instance credentials, used for configuration APIs internal to the instance."
   value       = module.isv_instance.isv_instance_credentials
+  sensitive   = true
 }
 
 output "isv_instance_credentials_json" {
   description = "Security Verify instance credentials, used for configuration APIs internal to the instance."
   value       = module.isv_instance.isv_instance_credentials_json
+  sensitive   = true
 }
