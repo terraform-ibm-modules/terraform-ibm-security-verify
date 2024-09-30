@@ -31,7 +31,7 @@ variable "region" {
   description = "The IBM Cloud region where the IBM Security Verify resource is created.Possible values: `eu-de` (Frankfurt)"
   default     = "eu-de"
   validation {
-    condition     = contains(["eu-de"], var.region)
+    condition     = contains(["eu-de", "us-south"], var.region)
     error_message = "The specified region is not supported. The following regions are supported: `eu-de` (Frankfurt)"
   }
 }
