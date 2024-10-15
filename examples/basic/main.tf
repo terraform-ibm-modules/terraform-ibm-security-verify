@@ -15,7 +15,7 @@ module "resource_group" {
 ########################################################################################################################
 
 module "isv_instance" {
-  source            = "../../"
+  source            = "../../modules/tenant-instance"
   resource_group_id = module.resource_group.resource_group_id
   hostname          = "${var.prefix}-tenant"
   region            = var.region
