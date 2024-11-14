@@ -20,3 +20,15 @@ output "account_url" {
   description = "The IBM Security Verify Account URL"
   value       = "https://${var.hostname}.verify.ibm.com/ui/admin/"
 }
+
+output "api_oauth2_credentials" {
+  description = "The oauth2 credentials needed for API access to configure Security Verify features"
+  value       = ibm_resource_key.api_oauth2_credentials.credentials
+  sensitive   = true
+}
+
+output "api_oauth2_credentials_json" {
+  description = "The oauth2 credentials, in JSON format, needed for API access to configure Security Verify features"
+  value       = ibm_resource_key.api_oauth2_credentials.credentials_json
+  sensitive   = true
+}

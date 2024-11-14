@@ -26,3 +26,15 @@ output "account_url" {
   description = "The IBM Security Verify Account URL"
   value       = module.isv_instance.account_url
 }
+
+output "api_oauth2_credentials" {
+  description = "The oauth2 credentials needed for API access to configure Security Verify features"
+  value       = module.isv_instance.api_oauth2_credentials
+  sensitive   = true
+}
+
+output "api_oauth2_credentials_json" {
+  description = "The oauth2 credentials, in JSON format, needed for API access to configure Security Verify features"
+  value       = module.isv_instance.api_oauth2_credentials_json
+  sensitive   = true
+}

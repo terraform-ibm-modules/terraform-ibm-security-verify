@@ -20,6 +20,7 @@ variable "plan" {
   type        = string
   description = "The pricing plan of the IBM Security Verify instance.Possible values: `verify-lite`"
   default     = "verify-lite"
+  nullable    = false
   validation {
     condition     = contains(["verify-lite"], var.plan)
     error_message = "The specified pricing plan is not available. The following plans are supported: `verify-lite`"
@@ -57,5 +58,38 @@ variable "access_tags" {
       for tag in var.access_tags : can(regex("[\\w\\-_\\.]+:[\\w\\-_\\.]+", tag)) && length(tag) <= 128
     ])
     error_message = "Tags must match the regular expression \"[\\w\\-_\\.]+:[\\w\\-_\\.]+\". For more information, see https://cloud.ibm.com/docs/account?topic=account-tag&interface=ui#limits."
+  }
+}
+
+########################################################################################################################
+# Secrets Manager - in which to store the IBM Cloud resource key credentials to the tenant instance
+########################################################################################################################
+
+variable "existing_secrets_manager_crn" {
+  type        = string
+  description = "The CRN of a secrets manager to store IBM Cloud resource key credentials of tenant. If not supplied, credentials will not be stored and must be retrieved from Terraform Outputs as a sensitive value."
+  default     = null
+}
+
+variable "existing_secret_group_id" {
+  type        = string
+  description = "The ID of an existing secret group to store any new secrets in."
+  default     = null
+}
+
+variable "secret_group_name" {
+  type        = string
+  description = "The name of a secret group to create to store any new secrets in. If not provided, the group name will be based on instance name (`ibmverify-instancename`)."
+  default     = null
+}
+
+variable "secrets_manager_endpoint_type" {
+  type        = string
+  description = "The service endpoint type to communicate with the provided secrets manager instance. Possible values are `public` or `private`"
+  default     = "public"
+  nullable    = false
+  validation {
+    condition     = contains(["public", "private"], var.secrets_manager_endpoint_type)
+    error_message = "The specified endpoint_type is not a valid selection!"
   }
 }

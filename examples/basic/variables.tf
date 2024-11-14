@@ -15,6 +15,12 @@ variable "region" {
   # Validation happens in main module
 }
 
+variable "plan" {
+  type        = string
+  description = "The pricing plan of the IBM Security Verify instance.Possible values: `verify-lite`"
+  default     = null
+}
+
 variable "prefix" {
   type        = string
   description = "Prefix to append to all resources created by this example"
