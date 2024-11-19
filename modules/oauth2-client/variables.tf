@@ -154,4 +154,35 @@ variable "token_endpoint_auth_single_use_jti" {
   default     = null
 }
 
+########################################################################################################################
+# Secrets Manager - in which to store the IBM Cloud resource key credentials to the tenant instance
+########################################################################################################################
 
+variable "existing_secrets_manager_crn" {
+  type        = string
+  description = "The CRN of a secrets manager to store IBM Cloud resource key credentials of tenant. If not supplied, credentials will not be stored and must be retrieved from Terraform Outputs as a sensitive value."
+  default     = null
+}
+
+variable "existing_secret_group_id" {
+  type        = string
+  description = "The ID of an existing secret group to store any new secrets in."
+  default     = null
+}
+
+variable "secret_group_name" {
+  type        = string
+  description = "The name of a secret group to create to store any new secrets in. If not provided, the group name will be based on instance name (`ibmverify-instancename`)."
+  default     = null
+}
+
+variable "secrets_manager_endpoint_type" {
+  type        = string
+  description = "The service endpoint type to communicate with the provided secrets manager instance. Possible values are `public` or `private`"
+  default     = "public"
+  nullable    = false
+  validation {
+    condition     = contains(["public", "private"], var.secrets_manager_endpoint_type)
+    error_message = "The specified endpoint_type is not a valid selection!"
+  }
+}

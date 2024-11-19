@@ -7,5 +7,9 @@ terraform {
       source  = "ibm/ibmverify"
       version = ">= 1.0.0"
     }
+    ibm = {
+      source  = "IBM-Cloud/ibm"
+      version = ">= 1.65.0, < 2.0.0"
+    }
   }
 }

@@ -26,3 +26,45 @@ resource "ibmverify_oauth2_client" "client" {
   token_endpoint_auth_method            = var.token_endpoint_auth_method
   token_endpoint_auth_single_use_jti    = var.token_endpoint_auth_single_use_jti
 }
+
+########################################################################################################################
+# Secrets manager
+########################################################################################################################
+
+module "sm_crn" {
+  count   = var.existing_secrets_manager_crn != null ? 1 : 0
+  source  = "terraform-ibm-modules/common-utilities/ibm//modules/crn-parser"
+  version = "1.0.0"
+  crn     = var.existing_secrets_manager_crn
+}
+
+# New secret group if existing not provided
+module "secret_group" {
+  count                    = var.existing_secrets_manager_crn != null && var.existing_secret_group_id == null ? 1 : 0
+  source                   = "terraform-ibm-modules/secrets-manager-secret-group/ibm"
+  version                  = "1.2.2"
+  region                   = module.sm_crn[0].region
+  secrets_manager_guid     = module.sm_crn[0].service_instance
+  secret_group_name        = coalesce(var.secret_group_name, "ibmverify-${local.full_client_name}")
+  secret_group_description = "IBM Verify secrets and credentials"
+  endpoint_type            = var.secrets_manager_endpoint_type
+}
+
+locals {
+  secret_group_id        = var.existing_secrets_manager_crn == null ? null : (var.existing_secret_group_id == null ? module.secret_group[0].secret_group_id : var.existing_secret_group_id)
+  credential_secret_name = "client-secret-${local.full_client_name}"
+}
+
+module "client_secret" {
+  count                   = var.existing_secrets_manager_crn != null ? 1 : 0
+  source                  = "terraform-ibm-modules/secrets-manager-secret/ibm"
+  version                 = "1.3.2"
+  region                  = module.sm_crn[0].region
+  secrets_manager_guid    = module.sm_crn[0].service_instance
+  secret_group_id         = local.secret_group_id
+  endpoint_type           = var.secrets_manager_endpoint_type
+  secret_name             = local.credential_secret_name
+  secret_description      = "IBM Verify OIDC credentials for client ${local.full_client_name}"
+  secret_type             = "arbitrary"
+  secret_payload_password = ibmverify_oauth2_client.client.client_secret
+}
