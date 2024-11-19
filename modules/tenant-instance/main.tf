@@ -52,7 +52,7 @@ module "secret_group" {
 
 locals {
   secret_group_id        = var.existing_secrets_manager_crn == null ? null : (var.existing_secret_group_id == null ? module.secret_group[0].secret_group_id : var.existing_secret_group_id)
-  credential_secret_name = "tenant-admin-oidc-${var.instance_name}"
+  credential_secret_name = "${var.instance_name}-tenant-admin-oidc"
 }
 
 module "tenant_credential_secret" {
