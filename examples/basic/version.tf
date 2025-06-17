@@ -6,7 +6,7 @@ terraform {
   required_providers {
     ibm = {
       source  = "IBM-Cloud/ibm"
-      version = "1.65.0"
+      version = "1.79.0" # Updated the minimum required_providers version due to https://github.com/terraform-ibm-modules/terraform-ibm-resource-group/pull/717
     }
   }
 }
