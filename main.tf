@@ -16,6 +16,7 @@ resource "ibm_resource_instance" "isv_instance" {
 }
 
 resource "ibm_resource_tag" "access_tags" {
+  depends_on  = [data.ibm_iam_access_tag.access_tag] # Force dependency on data source validation to ensure access_tags exist and are valid before use.
   resource_id = resource.ibm_resource_instance.isv_instance.crn
   tags        = var.access_tags
   tag_type    = "access"
