@@ -127,6 +127,7 @@ No modules.
 |------|------|
 | [ibm_resource_instance.isv_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/resource_instance) | resource |
 | [ibm_resource_tag.access_tags](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/resource_tag) | resource |
+| [ibm_iam_access_tag.access_tags](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/iam_access_tag) | data source |
 
 ### Inputs
 
