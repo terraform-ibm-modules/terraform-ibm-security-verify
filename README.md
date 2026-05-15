@@ -127,18 +127,19 @@ No modules.
 |------|------|
 | [ibm_resource_instance.isv_instance](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/resource_instance) | resource |
 | [ibm_resource_tag.access_tags](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/resources/resource_tag) | resource |
+| [ibm_iam_access_tag.access_tags](https://registry.terraform.io/providers/IBM-Cloud/ibm/latest/docs/data-sources/iam_access_tag) | data source |
 
 ### Inputs
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_access_tags"></a> [access\_tags](#input\_access\_tags) | A list of access tags to apply to the resources created by the module. For more information, see https://cloud.ibm.com/docs/account?topic=account-access-tags-tutorial. | `list(string)` | `[]` | no |
+| <a name="input_access_tags"></a> [access\_tags](#input\_access\_tags) | Add access management tags to the Security Verify instance to control access. [Learn more](https://cloud.ibm.com/docs/account?topic=account-tag&interface=ui#create-access-console). | `list(string)` | `[]` | no |
 | <a name="input_hostname"></a> [hostname](#input\_hostname) | The hostname of the IBM Security Verify instance which is used to construct the Dashboard/Account URL in the format: https://<hostname>.verify.ibm.com/ui/admin/. Note: After the service instance creation returns, the instance may take up to two minutes to be available. | `string` | n/a | yes |
 | <a name="input_instance_name"></a> [instance\_name](#input\_instance\_name) | The name of the IBM Security Verify instance. | `string` | n/a | yes |
 | <a name="input_plan"></a> [plan](#input\_plan) | The pricing plan of the IBM Security Verify instance.Possible values: `verify-lite` | `string` | `"verify-lite"` | no |
 | <a name="input_region"></a> [region](#input\_region) | The IBM Cloud region where the IBM Security Verify resource is created.Possible values: `eu-de` (Frankfurt) | `string` | `"eu-de"` | no |
 | <a name="input_resource_group_id"></a> [resource\_group\_id](#input\_resource\_group\_id) | The ID of the resource group where the IBM Security Verify instance is created. | `string` | n/a | yes |
-| <a name="input_resource_tags"></a> [resource\_tags](#input\_resource\_tags) | A list of tags to apply to resources created by the module. | `list(string)` | `[]` | no |
+| <a name="input_resource_tags"></a> [resource\_tags](#input\_resource\_tags) | Add user resource tags to the Security Verify instance to organize, track, and manage costs. [Learn more](https://cloud.ibm.com/docs/account?topic=account-tag&interface=ui#tag-types). | `list(string)` | `[]` | no |
 
 ### Outputs
 
