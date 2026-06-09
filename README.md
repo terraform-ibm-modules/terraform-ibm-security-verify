@@ -33,10 +33,10 @@ For more information, see [IBM Security Verify Documentation Hub](https://docs.v
 ## Overview
 <ul>
   <li><a href="#terraform-ibm-security-verify">terraform-ibm-security-verify</a></li>
-  <li><a href="./examples">Examples</a>
+  <li><a href="https://github.com/terraform-ibm-modules/terraform-ibm-security-verify/tree/main/examples">Examples</a>
     <ul>
       <li>
-        <a href="./examples/basic">Basic example</a>
+        <a href="https://github.com/terraform-ibm-modules/terraform-ibm-security-verify/tree/main/examples/basic">Basic example</a>
         <a href="https://cloud.ibm.com/schematics/workspaces/create?workspace_name=security-verify-basic-example&repository=https://github.com/terraform-ibm-modules/terraform-ibm-security-verify/tree/main/examples/basic"><img src="https://img.shields.io/badge/Deploy%20with%20IBM%20Cloud%20Schematics-0f62fe?style=flat&logo=ibm&logoColor=white&labelColor=0f62fe" alt="Deploy with IBM Cloud Schematics" style="height: 16px; vertical-align: text-bottom; margin-left: 5px;"></a>
       </li>
     </ul>
