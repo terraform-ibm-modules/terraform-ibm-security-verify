@@ -15,7 +15,9 @@ resource "ibm_resource_instance" "isv_instance" {
   }
 
   timeouts {
-    create = "20m"
+    create = "2hr"
+    update = "2hr"
+    delete = "2hr"
   }
 }
 
