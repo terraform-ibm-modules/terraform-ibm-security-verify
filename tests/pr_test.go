@@ -35,7 +35,7 @@ func TestRunBasicExample(t *testing.T) {
 }
 
 func TestRunUpgradeExample(t *testing.T) {
-	t.Skip()
+	t.Parallel()
 
 	options := setupOptions(t, "isv-upg", basicExampleDir)
 
