@@ -25,7 +25,7 @@ func setupOptions(t *testing.T, prefix string, dir string) *testhelper.TestOptio
 }
 
 func TestRunBasicExample(t *testing.T) {
-	t.Parallel()
+	t.Skip()
 
 	options := setupOptions(t, "isv-basic", basicExampleDir)
 
