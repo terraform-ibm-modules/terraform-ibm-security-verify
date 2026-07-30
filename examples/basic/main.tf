@@ -11,13 +11,25 @@ module "resource_group" {
 }
 
 ########################################################################################################################
+# Random suffix to ensure a globally unique IBM Verify hostname on every deployment
+########################################################################################################################
+
+resource "random_string" "hostname_suffix" {
+  length  = 6
+  lower   = true
+  numeric = true
+  upper   = false
+  special = false
+}
+
+########################################################################################################################
 # IBM Security Verify instance
 ########################################################################################################################
 
 module "isv_instance" {
   source            = "../../"
   resource_group_id = module.resource_group.resource_group_id
-  hostname          = "${var.prefix}-tenant"
+  hostname          = "${var.prefix}-${random_string.hostname_suffix.result}"
   region            = var.region
   instance_name     = "${var.prefix}-isv"
   resource_tags     = var.resource_tags

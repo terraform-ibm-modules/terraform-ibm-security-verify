@@ -8,5 +8,9 @@ terraform {
       source  = "IBM-Cloud/ibm"
       version = "1.88.0"
     }
+    random = {
+      source  = "hashicorp/random"
+      version = ">= 3.6.0"
+    }
   }
 }
