@@ -13,10 +13,6 @@ resource "ibm_resource_instance" "isv_instance" {
   parameters = {
     hostname = var.hostname
   }
-
-  timeouts {
-    create = "30m"
-  }
 }
 
 # Check whether access tags are valid and exist in the account
