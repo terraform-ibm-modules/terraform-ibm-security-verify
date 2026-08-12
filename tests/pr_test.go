@@ -25,7 +25,7 @@ func setupOptions(t *testing.T, prefix string, dir string) *testhelper.TestOptio
 }
 
 func TestRunBasicExample(t *testing.T) {
-	t.Parallel()
+	t.Skip() // Skipping until there is an active plan for security-verify
 
 	options := setupOptions(t, "isv-basic", basicExampleDir)
 
@@ -35,7 +35,7 @@ func TestRunBasicExample(t *testing.T) {
 }
 
 func TestRunUpgradeExample(t *testing.T) {
-	t.Parallel()
+	t.Skip() // Skipping until there is an active plan for security-verify
 
 	options := setupOptions(t, "isv-upg", basicExampleDir)
 
