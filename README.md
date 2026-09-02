@@ -1,6 +1,9 @@
 <!-- Update this title with a descriptive name. Use sentence case. -->
 # IBM Security Verify module
 
+---
+🕸️ Archived: This module and the service is no longer maintained and is archived.
+---
 <!--
 Update status and "latest release" badges:
   1. For the status options, see https://terraform-ibm-modules.github.io/documentation/#/badge-status
@@ -20,8 +23,6 @@ Expand on the repo short description in the .github/settings.yml file.
 For information, see "Module names and descriptions" at
 https://terraform-ibm-modules.github.io/documentation/#/implementation-guidelines?id=module-names-and-descriptions
 -->
-
-:warning: Archived: This module and the service is no longer maintained and is archived.
 
 This module is used to create an IBM Security Verify instance to provide Single Sign-On (SSO), multi-factor authentication (MFA), identity governance, and identity lifecycle controls for internal (workforce) and external (consumer) user types.
 
